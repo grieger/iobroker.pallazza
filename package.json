@@ -47,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.haassohn/issues"
   },
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
