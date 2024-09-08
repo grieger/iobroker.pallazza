@@ -2,6 +2,7 @@
     "common": {
         "name": "haassohn",
         "version": "1.0.11",
+        "tier": 2,
         "news": {
           "1.0.10": {
             "en": "Added support for KS01_V7.01 (HSP 2 Premium)",
