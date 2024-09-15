@@ -4,29 +4,17 @@
         "version": "1.0.11",
         "tier": 2,
         "news": {
-          "1.0.10": {
-            "en": "Added support for KS01_V7.01 (HSP 2 Premium)",
-            "de": "Unterstützung von KS01_V7.01 (HSP 2 Premium) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.01 (HSP 2 Premium)",
-            "pt": "Adicionado suporte para KS01_V7.01 (HSP 2 Premium)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.01 (HSP 2 Premium)",
-            "fr": "Ajout de la prise en charge de KS01_V7.01 (HSP 2 Premium)",
-            "it": "Aggiunto supporto per KS01_V7.01 (HSP 2 Premium)",
-            "es": "Soporte agregado para KS01_V7.01 (HSP 2 Premium)",
-            "pl": "Dodano obsługę KS01_V7.01 (HSP 2 Premium)",
-            "zh-cn": "添加了对KS01_V7.01 (HSP 2 Premium) 的支持"
-          },
-          "1.0.10": {
-            "en": "Added support for KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "de": "Unterstützung von KS01_V7.08 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "fr": "Ajout de la prise en charge de KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "es": "Soporte agregado para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "pl": "Dodano obsługę KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "zh-cn": "添加了对KS01_V7.08 (HSP 6 PELLETTO IV 419.08) 的支持"
+          "1.0.11": {
+            "en": "Added support for KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "de": "Unterstützung von KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
+            "ru": "Добавлена поддержка KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "pt": "Adicionado suporte para KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "nl": "Ondersteuning toegevoegd voor KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "fr": "Ajout de la prise en charge de KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "it": "Aggiunto supporto per KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "es": "Soporte agregado para KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "pl": "Dodano obsługę KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+            "zh-cn": "添加了对KS01_V7.01 (HSP 2 Premium), KS01_V7.08 (HSP 6 PELLETTO IV 419.08) 的支持"
           },
           "1.0.9": {
             "en": "Added support for KS01_V6.07 (HSP 7)",
@@ -65,28 +53,16 @@
             "zh-cn": "添加了对KS01_V7.13 (HSP 6 PELLETTO IV 419.08) 的支持"
           },
           "1.0.6": {
-            "en": "Added support for KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "de": "Unterstützung von KS01_V5.07 (HSP 6 PALLAZZA-III) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.07 (HSP 6 PALLAZZA-III).",
-            "pt": "Adicionado suporte para KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "fr": "Ajout de la prise en charge de KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "it": "Aggiunto supporto per KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "es": "Soporte agregado para KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "pl": "Dodano obsługę KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "zh-cn": "添加了对KS01_V5.07 (HSP 6 PALLAZZA-III) 的支持"
-          },
-          "1.0.5": {
-            "en": "Added support for KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "de": "Unterstützung von KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08).",
-            "pt": "Adicionado suporte para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "fr": "Ajout de la prise en charge de KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "it": "Aggiunto supporto per KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "es": "Soporte agregado para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "pl": "Dodano obsługę KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "zh-cn": "添加了对KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) 的支持"
+            "en": "Added support for KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "de": "Unterstützung von KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) hinzugefügt",
+            "ru": "Добавлена поддержка KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08).",
+            "pt": "Adicionado suporte para KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "nl": "Ondersteuning toegevoegd voor KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "fr": "Ajout de la prise en charge de KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "it": "Aggiunto supporto per KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "es": "Soporte agregado para KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "pl": "Dodano obsługę KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+            "zh-cn": "添加了对KS01_V5.07 (HSP 6 PALLAZZA-III), KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) 的支持"
           },
           "1.0.4": {
             "en": "Updated dependencies",
@@ -159,90 +135,6 @@
             "es": "Adaptador renombrado a iobroker.haassohn",
             "pl": "Zmieniono nazwę adaptera na iobroker.haassohn",
             "zh-cn": "将适配器重命名为iobroker.haassohn"
-          },
-          "0.2.8": {
-            "en": "Added support for KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "de": "Unterstützung von KS01_V5.10 (HSP 8 Catania-II 444.08-ST) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.10 (HSP 8 Catania-II 444.08-ST).",
-            "pt": "Adicionado suporte para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "fr": "Ajout de la prise en charge de KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "it": "Aggiunto supporto per KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "es": "Soporte agregado para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "pl": "Dodano obsługę KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "zh-cn": "添加了对KS01_V5.10（HSP 8 Catania-II 444.08-ST）的支持"
-          },
-          "0.2.7": {
-            "en": "Added support for KS01_V7.04-oKV (HSP 7 DIANA)",
-            "de": "Unterstützung von KS01_V7.04-oKV (HSP 7 DIANA) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.04-окВ (HSP 7 DIANA).",
-            "pt": "Adicionado suporte para KS01_V7.04-oKV (HSP 7 DIANA)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.04-oKV (HSP 7 DIANA)",
-            "fr": "Ajout de la prise en charge de KS01_V7.04-oKV (HSP 7 DIANA)",
-            "it": "Aggiunto supporto per KS01_V7.04-oKV (HSP 7 DIANA)",
-            "es": "Soporte agregado para KS01_V7.04-oKV (HSP 7 DIANA)",
-            "pl": "Dodano obsługę KS01_V7.04-oKV (HSP 7 DIANA)",
-            "zh-cn": "添加了对KS01_V7.04-oKV（HSP 7 DIANA）的支持"
-          },
-          "0.2.6": {
-            "en": "Added support for KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "de": "Unterstützung von KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.12 (HSP 6 PALLAZZA-III 519.0).",
-            "pt": "Adicionado suporte para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "fr": "Ajout de la prise en charge de KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "it": "Aggiunto supporto per KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "es": "Soporte agregado para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "pl": "Dodano obsługę KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "zh-cn": "添加了对KS01_V5.12（HSP 6 PALLAZZA-III 519.0）的支持"
-          },
-          "0.2.5": {
-            "en": "Added support for KS01_V7.08 (HSP 6 Pelletto IV 434.08), refined some states",
-            "de": "Unterstützung von KS01_V7.08 (HSP 6 Pelletto IV 434.08) hinzugefügt, Zustände verfeinert",
-            "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 Pelletto IV 434.08), доработаны некоторые состояния",
-            "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 Pelletto IV 434.08), alguns estados refinados",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 Pelletto IV 434.08), enkele staten verfijnd",
-            "fr": "Ajout du support pour KS01_V7.08 (HSP 6 Pelletto IV 434.08), affiné certains états",
-            "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 Pelletto IV 434.08), perfezionato alcuni stati",
-            "es": "Soporte agregado para KS01_V7.08 (HSP 6 Pelletto IV 434.08), refinado algunos estados",
-            "pl": "Dodano obsługę KS01_V7.08 (HSP 6 Pelletto IV 434.08), poprawiono niektóre stany",
-            "zh-cn": "添加了对KS01_V7.08（HSP 6 Pelletto IV 434.08）的支持，完善了一些状态"
-          },
-          "0.2.4": {
-            "en": "Added support for KS01_V7.07 (HSP 6 HELENA RLU), refined some states",
-            "de": "Unterstützung von KS01_V7.07 (HSP 6 HELENA RLU) hinzugefügt, Zustände verfeinert",
-            "ru": "Добавлена поддержка KS01_V7.07 (HSP 6 HELENA RLU), доработаны некоторые состояния",
-            "pt": "Adicionado suporte para KS01_V7.07 (HSP 6 HELENA RLU), alguns estados refinados",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.07 (HSP 6 HELENA RLU), enkele staten verfijnd",
-            "fr": "Ajout du support pour KS01_V7.07 (HSP 6 HELENA RLU), affiné certains états",
-            "it": "Aggiunto supporto per KS01_V7.07 (HSP 6 HELENA RLU), perfezionato alcuni stati",
-            "es": "Soporte agregado para KS01_V7.07 (HSP 6 HELENA RLU), refinado algunos estados",
-            "pl": "Dodano obsługę KS01_V7.07 (HSP 6 HELENA RLU), poprawiono niektóre stany",
-            "zh-cn": "添加了对KS01_V7.07（HSP 6 HELENA RLU）的支持，完善了一些状态"
-          },
-          "0.2.3": {
-            "en": "Added support for KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "de": "Unterstützung von KS01_V7.06 (HSP 7 DIANA Plus RLU) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.06 (HSP 7 DIANA Plus RLU).",
-            "pt": "Adicionado suporte para KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "fr": "Ajout de la prise en charge de KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "it": "Aggiunto supporto per KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "es": "Soporte agregado para KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "pl": "Dodano obsługę KS01_V7.06 (HSP 7 DIANA Plus RLU)",
-            "zh-cn": "添加了对KS01_V7.06（HSP 7 DIANA Plus RLU）的支持"
-          },
-          "0.2.2": {
-            "en": "Added support for KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "de": "Unterstützung von KS01_V5.13 (HSP 2.17 PREMIUM) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.13 (HSP 2.17 PREMIUM).",
-            "pt": "Adicionado suporte para KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "fr": "Ajout du support pour KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "it": "Aggiunto supporto per KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "es": "Soporte agregado para KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "pl": "Dodano obsługę KS01_V5.13 (HSP 2.17 PREMIUM)",
-            "zh-cn": "添加了对KS01_V5.13（HSP 2.17 PREMIUM）的支持"
           }
         },
 		"title": "Haas+Sohn",
