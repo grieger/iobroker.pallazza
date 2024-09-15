@@ -75,66 +75,6 @@
     		"es": "Dependencias actualizadas",
    		    "pl": "Zaktualizowane zależności",
    		   "zh-cn": "更新的依赖项"
-          },
-          "1.0.3": {
-            "en": "Added support for KS01_V7.02 (HSP 2.17 Premium III)",
-            "de": "Unterstützung von KS01_V7.02 (HSP 2.17 Premium III) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.02 (HSP 2.17 Premium III).",
-            "pt": "Adicionado suporte para KS01_V7.02 (HSP 2.17 Premium III)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.02 (HSP 2.17 Premium III)",
-            "fr": "Ajout de la prise en charge de KS01_V7.02 (HSP 2.17 Premium III)",
-            "it": "Aggiunto supporto per KS01_V7.02 (HSP 2.17 Premium III)",
-            "es": "Soporte agregado para KS01_V7.02 (HSP 2.17 Premium III)",
-            "pl": "Dodano obsługę KS01_V7.02 (HSP 2.17 Premium III)",
-            "zh-cn": "添加了对KS01_V7.02（HSP 2.17 Premium III）的支持"
-          },
-          "1.0.2": {
-            "en": "Fixed findings of code review",
-            "de": "Ergebnisse der Codeprüfung wurden eingearbeitet",
-            "ru": "Исправленные результаты проверки кода",
-            "pt": "Descobertas corrigidas da revisão de código",
-            "nl": "Vaste bevindingen van codereview",
-            "fr": "Correction des résultats de la révision du code",
-            "it": "Risolti i risultati della revisione del codice",
-            "es": "Hallazgos fijos de la revisión del código",
-            "pl": "Naprawiono ustalenia z przeglądu kodu",
-            "zh-cn": "修正了代码审查的发现"
-          },
-          "1.0.1": {
-            "en": "Support of compact mode",
-            "de": "Compact mode wird nun unterstützt",
-            "ru": "Поддержка компактного режима",
-            "pt": "Suporte para modo compacto",
-            "nl": "Ondersteuning van compacte modus",
-            "fr": "Prise en charge du mode compact",
-            "it": "Supporto della modalità compatta",
-            "es": "Soporte de modo compacto",
-            "pl": "Obsługa trybu kompaktowego",
-            "zh-cn": "支持紧凑模式"
-          },
-          "1.0.0": {
-            "en": "Published adapter in iobroker repository",
-            "de": "Adapter dem ioBroker-Repository hinzugefügt",
-            "ru": "Опубликован адаптер в репозитории iobroker",
-            "pt": "Adaptador publicado no repositório iobroker",
-            "nl": "Gepubliceerde adapter in iobroker-repository",
-            "fr": "Adaptateur publié dans le référentiel iobroker",
-            "it": "Adattatore pubblicato nel repository iobroker",
-            "es": "Adaptador publicado en el repositorio de iobroker",
-            "pl": "Opublikowany adapter w repozytorium iobroker",
-            "zh-cn": "iobroker存储库中已发布的适配器"
-          },
-          "0.3.0": {
-            "en": "Renamed adapter to iobroker.haassohn",
-            "de": "Adapter in iobroker.haassohn umbenannt",
-            "ru": "Адаптер переименован в iobroker.haassohn",
-            "pt": "Adaptador renomeado para iobroker.haassohn",
-            "nl": "Hernoemde adapter naar iobroker.haassohn",
-            "fr": "Adaptateur renommé en iobroker.haassohn",
-            "it": "Adattatore rinominato in iobroker.haassohn",
-            "es": "Adaptador renombrado a iobroker.haassohn",
-            "pl": "Zmieniono nazwę adaptera na iobroker.haassohn",
-            "zh-cn": "将适配器重命名为iobroker.haassohn"
           }
         },
 		"title": "Haas+Sohn",
