@@ -1,5 +1,5 @@
 # ioBroker.haassohn
-[![Number of Installations](http://iobroker.live/badges/haassohn-installed.svg)](http://iobroker.live/badges/haassohn-stable.svg) [![Tests](https://travis-ci.org/marvingrieger/ioBroker.haassohn.svg?branch=master)](https://travis-ci.org/marvingrieger/ioBroker.haassohn) [![Tests](https://ci.appveyor.com/api/projects/status/pa1806omq9l1qdii?svg=true)](https://ci.appveyor.com/project/marvingrieger/iobroker-haassohn) [![CodeQL](https://github.com/marvingrieger/ioBroker.haassohn/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/marvingrieger/ioBroker.haassohn/actions/workflows/codeql-analysis.yml)
+[![Number of Installations](http://iobroker.live/badges/haassohn-installed.svg)](http://iobroker.live/badges/haassohn-stable.svg) [![CodeQL](https://github.com/marvingrieger/ioBroker.haassohn/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/marvingrieger/ioBroker.haassohn/actions/workflows/codeql-analysis.yml) ![Test and Release](https://github.com/marvingrieger/ioBroker.haassohn/actions/workflows/test-and-release.yml/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.haassohn.png)](https://npmjs.org/package/iobroker.haassohn)
 
