@@ -20,7 +20,7 @@ let hpin;                             // HPIN is the 'encrypted' PIN of the devi
 let hspin;                            // HSPIN is the secret, depending on the current NONCE and the HPIN
 let nonce;                            // The current NONCE of the device
 let nonceTimestamp = 0;               // Timestamp when the nonce was last updated
-const nonceExpiryTime = 60 * 60 * 1000; // Example: 1 hour in milliseconds
+const nonceExpiryTime = 60 ; // Example: 1 hour in milliseconds
 let adapterInstance;                  // Adapter object
 
 // Start Adapter function
