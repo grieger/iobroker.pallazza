@@ -14,7 +14,7 @@ const util = require('util');
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.haassohn.0
 
 // Variables
-const deviceStates = [];              // Used to internally buffer the retrieved states before writing them to the adapter
+const deviceStates = {};              // Used to internally buffer the retrieved states before writing them to the adapter
 let noOfConnectionErrors = 0;         // Counter for connection problems
 let missingState = false;             // If a device state cannot be mapped to an internal state of the adapter, this variable gets set
 let timer;                            // Settimeout-Pointer to the poll-function
@@ -26,7 +26,7 @@ let hspin;                            // HSPIN is the secret, depending on the c
 let nonce;                            // The current NONCE of the device
 let nonceTimestamp = 0;               // Timestamp when the nonce was last updated
 const nonceExpiryTime = 60 * 60 * 1000; // Example: 1 hour in milliseconds
-let adapter;                          // Adapter object
+let adapterInstance;                  // Adapter object
 
 // Promisify adapter methods for async/await
 const getObjectAsync = util.promisify;
@@ -57,18 +57,18 @@ function startAdapter(options) {
         }
     });
 
-    adapter = new utils.Adapter(options);
+    adapterInstance = new utils.Adapter(options);
 
-    return adapter;
+    return adapterInstance;
 }
 
 // Initialization
 async function initialize() {
     // All states changes inside the adapters namespace are subscribed
-    adapter.subscribeStates('*');
+    adapterInstance.subscribeStates('*');
 
     // Calculate HPIN
-    hpin = calculateHPIN(adapter.config.pin);
+    hpin = calculateHPIN(adapterInstance.config.pin);
 
     // Start polling
     await pollDeviceStatus();
@@ -77,12 +77,12 @@ async function initialize() {
 // Cleanup and terminate the adapter
 function terminate(callback) {
     try {
-        adapter.log.info('Adapter is shutting down. Cleaning everything up');
+        adapterInstance.log.info('Adapter is shutting down. Cleaning everything up');
 
         // Clear timer
         clearTimeout(timer);
 
-        adapter.log.debug('Adapter was shut down. Cleaned everything up.');
+        adapterInstance.log.debug('Adapter was shut down. Cleaned everything up.');
         callback();
     } catch (e) {
         callback();
@@ -92,13 +92,13 @@ function terminate(callback) {
 // Handle a state change
 async function handleStateChange(id, state) {
     // Warning, state can be null if it was deleted
-    adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
+    adapterInstance.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
 
     // you can use the ack flag to detect if it is status (true) or command (false)
     if (state && !state.ack) {
-        adapter.log.debug('stateChange (command): ' + id + ' ' + JSON.stringify(state));
+        adapterInstance.log.debug('stateChange (command): ' + id + ' ' + JSON.stringify(state));
 
-        if (String(id) === (adapter.namespace + '.device.prg')) {
+        if (String(id) === (adapterInstance.namespace + '.device.prg')) {
             // Set new program
             const post_data_prg = '{"prg":' + state.val + '}';
 
@@ -106,25 +106,25 @@ async function handleStateChange(id, state) {
             makeAuthenticatedRequest({
                 method: 'POST',
                 headers: createHeader(post_data_prg),
-                url: 'http://' + adapter.config.fireplaceAddress + '/status.cgi',
+                url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
                 body: post_data_prg
             }, async function (error, response, body) {
-                adapter.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
 
                 // POST was successful, perform ack
                 if (error === null && response.statusCode === 200) {
                     // Acknowledge command
-                    await adapter.setStateAsync(adapter.namespace + '.device.prg', state.val, true);
+                    await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.prg', state.val, true);
                 // POST was not successful, revert
                 } else {
-                    adapter.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                    adapter.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                    adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
+                    adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
                 }
 
                 // Poll new state to update nonce immediately
                 await pollDeviceStatus();
             });
-        } else if (String(id) === (adapter.namespace + '.device.sp_temp')) {
+        } else if (String(id) === (adapterInstance.namespace + '.device.sp_temp')) {
             // Set new target temperature
             const post_data_sp_temp = '{"sp_temp":' + state.val + '}';
 
@@ -132,28 +132,28 @@ async function handleStateChange(id, state) {
             makeAuthenticatedRequest({
                 method: 'POST',
                 headers: createHeader(post_data_sp_temp),
-                url: 'http://' + adapter.config.fireplaceAddress + '/status.cgi',
+                url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
                 body: post_data_sp_temp
             }, async function (error, response, body) {
-                adapter.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
 
                 // POST was successful, perform ack
                 if (error === null && response.statusCode === 200) {
                     // Acknowledge command
-                    await adapter.setStateAsync(adapter.namespace + '.device.sp_temp', state.val, true);
+                    await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.sp_temp', state.val, true);
                 // POST was not successful, revert
                 } else {
-                    adapter.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                    adapter.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                    adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
+                    adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
                 }
 
                 // Poll new state to update nonce immediately
                 await pollDeviceStatus();
             });
-        } else if (String(id) === (adapter.namespace + '.device.eco_mode')) {
+        } else if (String(id) === (adapterInstance.namespace + '.device.eco_mode')) {
             // Check if eco mode is editable before sending command
             try {
-                const ecoEditableState = await adapter.getStateAsync('device.meta.eco_editable');
+                const ecoEditableState = await adapterInstance.getStateAsync('device.meta.eco_editable');
                 if (ecoEditableState && ecoEditableState.val) {
                     // Eco mode is editable, proceed with setting new eco mode
                     const post_data_eco_mode = '{"eco_mode":' + state.val + '}';
@@ -162,19 +162,19 @@ async function handleStateChange(id, state) {
                     makeAuthenticatedRequest({
                         method: 'POST',
                         headers: createHeader(post_data_eco_mode),
-                        url: 'http://' + adapter.config.fireplaceAddress + '/status.cgi',
+                        url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
                         body: post_data_eco_mode
                     }, async function (error, response, body) {
-                        adapter.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                        adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
 
                         // POST was successful, perform ack
                         if (error === null && response.statusCode === 200) {
                             // Acknowledge command
-                            await adapter.setStateAsync(adapter.namespace + '.device.eco_mode', state.val, true);
+                            await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.eco_mode', state.val, true);
                         // POST was not successful, revert
                         } else {
-                            adapter.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                            adapter.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
+                            adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
+                            adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
                         }
 
                         // Poll new state to update nonce immediately
@@ -182,10 +182,10 @@ async function handleStateChange(id, state) {
                     });
                 } else {
                     // Eco mode is not editable, log and ignore the command
-                    adapter.log.warn('Eco mode is not editable. Ignoring command to change eco mode.');
+                    adapterInstance.log.warn('Eco mode is not editable. Ignoring command to change eco mode.');
                 }
             } catch (err) {
-                adapter.log.error('Error getting eco_editable state: ' + err);
+                adapterInstance.log.error('Error getting eco_editable state: ' + err);
             }
         }
     }
@@ -193,18 +193,18 @@ async function handleStateChange(id, state) {
 
 // Main function to poll the device status
 async function pollDeviceStatus() {
-    adapter.log.debug('Polling device started');
+    adapterInstance.log.debug('Polling device started');
     clearTimeout(timer);
 
     // Calculate device link
-    const link = 'http://' + adapter.config.fireplaceAddress + '/status.cgi';
+    const link = 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi';
 
     try {
         // Promisify request for async/await
         const response = await util.promisify(request)(link);
         if (response && response.statusCode === 200) {
-            adapter.log.debug('Received successful response from device');
-            adapter.log.debug('Response body: ' + response.body);
+            adapterInstance.log.debug('Received successful response from device');
+            adapterInstance.log.debug('Response body: ' + response.body);
 
             let result;
             try {
@@ -215,32 +215,32 @@ async function pollDeviceStatus() {
                 noOfConnectionErrors = 0;
 
                 // Update nonce and hspin if present
-                if (result.device && result.device.meta && result.device.meta.nonce) {
-                    adapter.log.debug(`Old nonce: ${nonce}, New nonce: ${result.device.meta.nonce}`);
-                    if (nonce !== result.device.meta.nonce) {
-                        nonce = result.device.meta.nonce;
+                if (result.meta && result.meta.nonce) {
+                    adapterInstance.log.debug(`Old nonce: ${nonce}, New nonce: ${result.meta.nonce}`);
+                    if (nonce !== result.meta.nonce) {
+                        nonce = result.meta.nonce;
                         nonceTimestamp = Date.now();
                         hspin = calculateHSPIN(nonce, hpin);
-                        adapter.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
+                        adapterInstance.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
                     }
                 } else {
-                    adapter.log.warn('Nonce not found in the response');
+                    adapterInstance.log.warn('Nonce not found in the response');
                 }
 
                 // Sync states
                 await syncState(result, '');
             } catch (e) {
                 // Parser error
-                adapter.log.error('Error parsing the response: ' + e);
+                adapterInstance.log.error('Error parsing the response: ' + e);
                 noOfConnectionErrors++;
             }
         } else {
             // Connection error
-            adapter.log.error('Error retrieving status: ' + (response ? response.statusCode : 'No response'));
+            adapterInstance.log.error('Error retrieving status: ' + (response ? response.statusCode : 'No response'));
             noOfConnectionErrors++;
         }
     } catch (error) {
-        adapter.log.error('Error retrieving status: ' + error);
+        adapterInstance.log.error('Error retrieving status: ' + error);
         noOfConnectionErrors++;
     }
 
@@ -249,81 +249,82 @@ async function pollDeviceStatus() {
 
     // Poll again, except a critical error occurred
     if (!disableAdapter) {
-        timer = setTimeout(pollDeviceStatus, adapter.config.pollingInterval * 1000);
+        timer = setTimeout(pollDeviceStatus, adapterInstance.config.pollingInterval * 1000);
     }
 
-    adapter.log.debug('Polling device ended');
+    adapterInstance.log.debug('Polling device ended');
 }
 
 // Indicate the state of the connection by setting the state 'connected'
 function updateConnectionStatus() {
     // Check if there were retries
     if (noOfConnectionErrors > 0) {
-        adapter.log.error('There was an error getting the device status (counter: ' + noOfConnectionErrors + ')');
+        adapterInstance.log.error('There was an error getting the device status (counter: ' + noOfConnectionErrors + ')');
     }
 
     // Query current connection indicator to check whether something changed at all
-    adapter.getState('info.connection', function (err, state) {
+    adapterInstance.getState('info.connection', function (err, state) {
         const connectionSuccessful = noOfConnectionErrors === 0;
 
         // Check whether the adapter shall be disabled
         if (disableAdapter) {
             // Update state
-            adapter.setState('info.connection', false, true);
+            adapterInstance.setState('info.connection', false, true);
         // Check whether the state has changed. If so, change state
         } else if (state === null || state.val !== connectionSuccessful) {
             // Update state
-            adapter.setState('info.connection', connectionSuccessful, true);
+            adapterInstance.setState('info.connection', connectionSuccessful, true);
         }
     });
 
     // Query current missing-state indicator to check whether something changed at all
-    adapter.getState('info.missing_state', function (err, state) {
+    adapterInstance.getState('info.missing_state', function (err, state) {
         // Check whether the state has changed. If so, change state
         if (state === null || state.val !== missingState) {
             // Update state
-            adapter.setState('info.missing_state', missingState, true);
+            adapterInstance.setState('info.missing_state', missingState, true);
         }
     });
 
     // Check if hardware / software combination is supported
     if (hw_version !== undefined && sw_version !== undefined) {
-        adapter.log.debug('Validating Hardware / Software combination. Supported: ' + Object.getOwnPropertyNames(adapter.config.supportedHwSwVersions));
+        adapterInstance.log.debug('Validating Hardware / Software combination. Supported: ' + Object.getOwnPropertyNames(adapterInstance.config.supportedHwSwVersions));
 
         try {
-            if (!adapter.config.supportedHwSwVersions[hw_version + '_' + sw_version]) {
-                adapter.log.debug('Hardware / Software combination is NOT supported by this adapter!');
-                adapter.log.error('Hardware / Software combination (' + hw_version + '_' + sw_version + ') is not supported by this adapter! Please open an issue on GitHub.');
+            if (!adapterInstance.config.supportedHwSwVersions[`${hw_version}_${sw_version}`]) {
+                adapterInstance.log.debug('Hardware / Software combination is NOT supported by this adapter!');
+                adapterInstance.log.error('Hardware / Software combination (' + hw_version + '_' + sw_version + ') is not supported by this adapter! Please open an issue on GitHub.');
                 disableAdapter = true;
             } else {
-                adapter.log.debug('Hardware / Software combination is supported by this adapter!');
+                adapterInstance.log.debug('Hardware / Software combination is supported by this adapter!');
             }
 
         } catch (err) {
             // Dump error and stop adapter
-            adapter.log.error(err);
+            adapterInstance.log.error(err);
             disableAdapter = true;
         }
     }
 
     // Query current state to check whether something changed at all
-    adapter.getState('info.terminated', function (err, state) {
+    adapterInstance.getState('info.terminated', function (err, state) {
         // Check whether the state has changed. If so, change state
         if (state === null || state.val !== disableAdapter) {
             // Update state
-            adapter.setState('info.terminated', disableAdapter, true);
+            adapterInstance.setState('info.terminated', disableAdapter, true);
         }
 
         // Shall we disable the adapter?
         if (disableAdapter) {
-            adapter.log.error('Some critical error occurred (see log). Disabling the adapter');
+            adapterInstance.log.error('Some critical error occurred (see log). Disabling the adapter');
         }
     });
+
 }
 
 // Synchronize the retrieved states with the states of the adapter
 async function syncState(state, path) {
-    adapter.log.debug('Syncing state of the device');
+    adapterInstance.log.debug('Syncing state of the device');
 
     try {
         for (const key of Object.keys(state)) {
@@ -337,16 +338,16 @@ async function syncState(state, path) {
                 const stateName = path === '' ? 'device.' + key : 'device.' + path + '.' + key;
                 const value = state[key];
 
-                adapter.log.debug(`Processing state: ${stateName} with value: ${value}`);
+                adapterInstance.log.debug(`Processing state: ${stateName} with value: ${value}`);
 
                 // Store retrieved state in central data structure
                 const newState = { value };
                 deviceStates[stateName] = newState;
 
                 try {
-                    const object = await adapter.getObjectAsync(stateName);
+                    const object = await adapterInstance.getObjectAsync(stateName);
                     if (object !== null) {
-                        const currentState = await adapter.getStateAsync(stateName);
+                        const currentState = await adapterInstance.getStateAsync(stateName);
                         const newStateData = deviceStates[stateName];
                         deviceStates[stateName] = null;
 
@@ -359,23 +360,25 @@ async function syncState(state, path) {
 
                         // Special handling for meta.nonce
                         if (stateName === 'device.meta.nonce') {
-                            adapter.log.debug(`Old nonce: ${nonce}, New nonce: ${newValue}`);
+                            adapterInstance.log.debug(`Old nonce: ${nonce}, New nonce: ${newValue}`);
                             if (nonce !== newValue) {
                                 nonce = newValue;
                                 nonceTimestamp = Date.now();
                                 hspin = calculateHSPIN(nonce, hpin);
-                                adapter.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
+                                adapterInstance.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
                             }
                         }
 
                         // Buffer HW-Version for supported version check
                         if (stateName === 'device.meta.hw_version' && hw_version !== newValue) {
                             hw_version = newValue;
+                        }
                         // Buffer SW-Version for supported version check
-                        } else if (stateName === 'device.meta.sw_version' && sw_version !== newValue) {
+                        else if (stateName === 'device.meta.sw_version' && sw_version !== newValue) {
                             sw_version = newValue;
+                        }
                         // Buffer nonce to calculate HSPIN
-                        } else if (stateName === 'device.meta.nonce' && nonce !== newValue) {
+                        else if (stateName === 'device.meta.nonce' && nonce !== newValue) {
                             nonce = newValue;
                             nonceTimestamp = Date.now();
                             hspin = calculateHSPIN(nonce, hpin);
@@ -384,36 +387,36 @@ async function syncState(state, path) {
                         // Check whether the state has changed. If so, change state
                         if (currentState !== null) {
                             if (currentState.val !== newValue) {
-                                adapter.log.debug(`State changed for ${stateName}: ${newValue} (was: ${currentState.val})`);
-                                await adapter.setStateAsync(stateName, newValue, true);
+                                adapterInstance.log.debug(`State changed for ${stateName}: ${newValue} (was: ${currentState.val})`);
+                                await adapterInstance.setStateAsync(stateName, newValue, true);
                             }
                         } else {
-                            adapter.log.debug(`Initial setting of state ${stateName} to ${newValue}`);
-                            await adapter.setStateAsync(stateName, newValue, true);
+                            adapterInstance.log.debug(`Initial setting of state ${stateName} to ${newValue}`);
+                            await adapterInstance.setStateAsync(stateName, newValue, true);
                         }
                     } else {
-                        adapter.log.warn(`State ${stateName} does not exist. Please open an issue on GitHub.`);
+                        adapterInstance.log.warn(`State ${stateName} does not exist. Please open an issue on GitHub.`);
                         // Indicate that state is missing
                         missingState = true;
                     }
 
                     // Special handling for eco_editable
                     if (stateName === 'device.meta.eco_editable') {
-                        const obj = await adapter.getObjectAsync('device.eco_mode');
+                        const obj = await adapterInstance.getObjectAsync('device.eco_mode');
                         if (obj) {
                             obj.common.write = value;
-                            await adapter.setObjectAsync('device.eco_mode', obj);
+                            await adapterInstance.setObjectAsync('device.eco_mode', obj);
                         }
                     }
                 } catch (err) {
-                    adapter.log.error(`Error processing state ${stateName}: ${err}`);
+                    adapterInstance.log.error(`Error processing state ${stateName}: ${err}`);
                     disableAdapter = true;
                 }
             }
         }
     } catch (e) {
         // Dump error and stop adapter
-        adapter.log.error('Error syncing states: ' + e);
+        adapterInstance.log.error('Error syncing states: ' + e);
         disableAdapter = true;
     }
 }
@@ -423,7 +426,7 @@ async function syncState(state, path) {
 // HSPIN = MD5(NONCE + HPIN)
 function calculateHSPIN(NONCE, HPIN) {
     const result = md5(NONCE + HPIN);
-    adapter.log.debug(`Calculated HSPIN with NONCE: ${NONCE} and HPIN: ${hpin} => HSPIN: ${result}`);
+    adapterInstance.log.debug(`Calculated HSPIN with NONCE: ${NONCE} and HPIN: ${hpin} => HSPIN: ${result}`);
     return result;
 }
 
@@ -431,14 +434,14 @@ function calculateHSPIN(NONCE, HPIN) {
 // HPIN = MD5(PIN)
 function calculateHPIN(PIN) {
     const result = md5(PIN);
-    adapter.log.debug(`Calculated HPIN from PIN: ${PIN} => HPIN: ${result}`);
+    adapterInstance.log.debug(`Calculated HPIN from PIN: ${PIN} => HPIN: ${result}`);
     return result;
 }
 
 // Provides a header for a POST request
 function createHeader(post_data) {
     return {
-        'Host': adapter.config.fireplaceAddress,
+        'Host': adapterInstance.config.fireplaceAddress,
         'Accept': '*/*',
         'Proxy-Connection': 'keep-alive',
         'X-BACKEND-IP': 'https://app.haassohn.com',
@@ -467,15 +470,15 @@ function makeAuthenticatedRequest(options, callback) {
 function validateAndRefreshNonce(callback) {
     const currentTime = Date.now();
     if (!nonce || (currentTime - nonceTimestamp) > nonceExpiryTime) {
-        adapter.log.debug('Nonce is missing or expired. Polling device to refresh nonce.');
+        adapterInstance.log.debug('Nonce is missing or expired. Polling device to refresh nonce.');
         pollDeviceStatus().then(() => {
             callback();
         }).catch(err => {
-            adapter.log.error('Error refreshing nonce: ' + err);
+            adapterInstance.log.error('Error refreshing nonce: ' + err);
             callback();
         });
     } else {
-        adapter.log.debug('Nonce is valid. Proceeding with request.');
+        adapterInstance.log.debug('Nonce is valid. Proceeding with request.');
         callback();
     }
 }
