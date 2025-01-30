@@ -6,8 +6,7 @@
 // Dependencies
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const md5 = require('md5');
-const request = require('request');
-const util = require('util');
+const axios = require('axios'); // Use axios for HTTP requests
 
 // Variables
 const deviceStates = {};              // Used to internally buffer the retrieved states before writing them to the adapter
@@ -89,96 +88,61 @@ async function handleStateChange(id, state) {
     if (state && !state.ack) {
         adapterInstance.log.debug('stateChange (command): ' + id + ' ' + JSON.stringify(state));
 
+        let post_data;
+        let stateToAcknowledge;
+
         if (String(id) === (adapterInstance.namespace + '.device.prg')) {
             // Set new program
-            const post_data_prg = '{"prg":' + state.val + '}';
-
-            // Perform request
-            makeAuthenticatedRequest({
-                method: 'POST',
-                headers: createHeader(post_data_prg),
-                url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
-                body: post_data_prg
-            }, async function (error, response, body) {
-                adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-
-                // POST was successful, perform ack
-                if (error === null && response.statusCode === 200) {
-                    // Acknowledge command
-                    await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.prg', state.val, true);
-                // POST was not successful, revert
-                } else {
-                    adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                    adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-                }
-
-                // Poll new state to update nonce immediately
-                await pollDeviceStatus();
-            });
+            post_data = { "prg": state.val };
+            stateToAcknowledge = 'device.prg';
         } else if (String(id) === (adapterInstance.namespace + '.device.sp_temp')) {
             // Set new target temperature
-            const post_data_sp_temp = '{"sp_temp":' + state.val + '}';
-
-            // Perform request
-            makeAuthenticatedRequest({
-                method: 'POST',
-                headers: createHeader(post_data_sp_temp),
-                url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
-                body: post_data_sp_temp
-            }, async function (error, response, body) {
-                adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-
-                // POST was successful, perform ack
-                if (error === null && response.statusCode === 200) {
-                    // Acknowledge command
-                    await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.sp_temp', state.val, true);
-                // POST was not successful, revert
-                } else {
-                    adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                    adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-                }
-
-                // Poll new state to update nonce immediately
-                await pollDeviceStatus();
-            });
+            post_data = { "sp_temp": state.val };
+            stateToAcknowledge = 'device.sp_temp';
         } else if (String(id) === (adapterInstance.namespace + '.device.eco_mode')) {
             // Check if eco mode is editable before sending command
             try {
                 const ecoEditableState = await adapterInstance.getStateAsync('device.meta.eco_editable');
                 if (ecoEditableState && ecoEditableState.val) {
                     // Eco mode is editable, proceed with setting new eco mode
-                    const post_data_eco_mode = '{"eco_mode":' + state.val + '}';
-
-                    // Perform request
-                    makeAuthenticatedRequest({
-                        method: 'POST',
-                        headers: createHeader(post_data_eco_mode),
-                        url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
-                        body: post_data_eco_mode
-                    }, async function (error, response, body) {
-                        adapterInstance.log.debug('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-
-                        // POST was successful, perform ack
-                        if (error === null && response.statusCode === 200) {
-                            // Acknowledge command
-                            await adapterInstance.setStateAsync(adapterInstance.namespace + '.device.eco_mode', state.val, true);
-                        // POST was not successful, revert
-                        } else {
-                            adapterInstance.log.error('stateChange (command): ' + id + ' ' + JSON.stringify(state) + ' was not successful');
-                            adapterInstance.log.error('POST response: ' + response + ' [RESPONSE]; ' + body + ' [BODY]; ' + error + ' [ERROR];');
-                        }
-
-                        // Poll new state to update nonce immediately
-                        await pollDeviceStatus();
-                    });
+                    post_data = { "eco_mode": state.val };
+                    stateToAcknowledge = 'device.eco_mode';
                 } else {
                     // Eco mode is not editable, log and ignore the command
                     adapterInstance.log.warn('Eco mode is not editable. Ignoring command to change eco mode.');
+                    return;
                 }
             } catch (err) {
                 adapterInstance.log.error('Error getting eco_editable state: ' + err);
+                return;
             }
+        } else {
+            adapterInstance.log.warn(`Unhandled state change for ${id}`);
+            return;
         }
+
+        try {
+            const response = await makeAuthenticatedRequest({
+                method: 'POST',
+                url: 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi',
+                data: post_data,
+                headers: createHeader(JSON.stringify(post_data))
+            });
+
+            adapterInstance.log.debug(`POST response: ${response.status} [STATUS]; ${JSON.stringify(response.data)} [BODY]`);
+
+            if (response.status === 200) {
+                // Acknowledge command
+                await adapterInstance.setStateAsync(`${adapterInstance.namespace}.${stateToAcknowledge}`, state.val, true);
+            } else {
+                adapterInstance.log.error(`stateChange (command): ${id} ${JSON.stringify(state)} was not successful`);
+            }
+        } catch (error) {
+            adapterInstance.log.error(`Error executing stateChange (command): ${error}`);
+        }
+
+        // Poll new state to update nonce immediately
+        await pollDeviceStatus();
     }
 }
 
@@ -198,54 +162,42 @@ async function pollDeviceStatus() {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
             'Pragma': 'no-cache',
             'Expires': '0'
-        }
+        },
+        timeout: 5000 // optional: set a timeout
     };
 
     try {
-        // Promisify request for async/await
-        const response = await util.promisify(request)(options);
-        if (response && response.statusCode === 200) {
+        const response = await axios(options);
+
+        if (response.status === 200) {
             adapterInstance.log.debug('Received successful response from device');
-            adapterInstance.log.debug('Response body: ' + response.body);
+            adapterInstance.log.debug('Response body: ' + JSON.stringify(response.data));
 
-            let result;
-            try {
-                // Log detailed parsing information
-                result = JSON.parse(response.body);
-                adapterInstance.log.debug(`Parsed JSON successfully.`);
+            let result = response.data;
 
-                // Log presence of meta and nonce
-                adapterInstance.log.debug(`Result.meta exists: ${result.meta !== undefined}`);
-                adapterInstance.log.debug(`Result.meta.nonce: ${result.meta ? result.meta.nonce : 'undefined'}`);
+            // Reset error counter
+            noOfConnectionErrors = 0;
 
-                // Reset error counter
-                noOfConnectionErrors = 0;
-
-                // Update nonce and hspin if present
-                if (result.meta && result.meta.nonce) {
-                    adapterInstance.log.debug(`Old nonce: ${nonce}, New nonce: ${result.meta.nonce}`);
-                    if (nonce !== result.meta.nonce) {
-                        nonce = result.meta.nonce;
-                        nonceTimestamp = Date.now();
-                        hspin = calculateHSPIN(nonce, hpin);
-                        adapterInstance.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
-                    } else {
-                        adapterInstance.log.debug(`Nonce remains unchanged: ${nonce}`);
-                    }
+            // Update nonce and hspin if present
+            if (result.meta && result.meta.nonce) {
+                adapterInstance.log.debug(`Old nonce: ${nonce}, New nonce: ${result.meta.nonce}`);
+                if (nonce !== result.meta.nonce) {
+                    nonce = result.meta.nonce;
+                    nonceTimestamp = Date.now();
+                    hspin = calculateHSPIN(nonce, hpin);
+                    adapterInstance.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
                 } else {
-                    adapterInstance.log.warn('Nonce not found in the response');
+                    adapterInstance.log.debug(`Nonce remains unchanged: ${nonce}`);
                 }
-
-                // Sync states
-                await syncState(result, '');
-            } catch (e) {
-                // Parser error
-                adapterInstance.log.error('Error parsing the response: ' + e);
-                noOfConnectionErrors++;
+            } else {
+                adapterInstance.log.warn('Nonce not found in the response');
             }
+
+            // Sync states
+            await syncState(result, '');
         } else {
             // Connection error
-            adapterInstance.log.error('Error retrieving status: ' + (response ? response.statusCode : 'No response'));
+            adapterInstance.log.error('Error retrieving status: ' + response.status);
             noOfConnectionErrors++;
         }
     } catch (error) {
@@ -297,7 +249,7 @@ function updateConnectionStatus() {
 
     // Check if hardware / software combination is supported
     if (hw_version !== undefined && sw_version !== undefined) {
-        adapterInstance.log.debug('Validating Hardware / Software combination. Supported: ' + Object.getOwnPropertyNames(adapterInstance.config.supportedHwSwVersions));
+        adapterInstance.log.debug('Validating Hardware / Software combination. Supported: ' + Object.keys(adapterInstance.config.supportedHwSwVersions));
 
         try {
             if (!adapterInstance.config.supportedHwSwVersions[`${hw_version}_${sw_version}`]) {
@@ -361,7 +313,7 @@ async function syncState(state, path) {
                         deviceStates[stateName] = null;
 
                         let newValue;
-                        if (typeof newStateData.value === 'object') {
+                        if (typeof newStateData.value === 'object' && !Array.isArray(newStateData.value)) {
                             newValue = JSON.stringify(newStateData.value);
                         } else {
                             newValue = newStateData.value;
@@ -455,7 +407,7 @@ function createHeader(post_data) {
         'Proxy-Connection': 'keep-alive',
         'X-BACKEND-IP': 'https://app.haassohn.com',
         'Accept-Language': 'de-DE;q=1.0, en-DE;q=0.9',
-        'Accept-Encoding': 'gzip;q=1.0, compress;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
         'token': '32bytes',
         'Content-Type': 'application/json',
         'Content-Length': Buffer.byteLength(post_data),
@@ -466,29 +418,29 @@ function createHeader(post_data) {
 }
 
 // Centralized authenticated request to ensure nonce is up-to-date
-function makeAuthenticatedRequest(options, callback) {
+async function makeAuthenticatedRequest(options) {
     // Validate and refresh nonce before making the request
-    validateAndRefreshNonce(async () => {
-        // Update headers with the latest hspin
-        options.headers = createHeader(options.body);
-        request(options, callback);
-    });
+    await validateAndRefreshNonce();
+
+    // Update headers with the latest hspin
+    options.headers = createHeader(options.data);
+
+    try {
+        const response = await axios(options);
+        return response;
+    } catch (error) {
+        throw error;
+    }
 }
 
 // Validate nonce and refresh if necessary
-function validateAndRefreshNonce(callback) {
+async function validateAndRefreshNonce() {
     const currentTime = Date.now();
     if (!nonce || (currentTime - nonceTimestamp) > nonceExpiryTime) {
         adapterInstance.log.debug('Nonce is missing or expired. Polling device to refresh nonce.');
-        pollDeviceStatus().then(() => {
-            callback();
-        }).catch(err => {
-            adapterInstance.log.error('Error refreshing nonce: ' + err);
-            callback();
-        });
+        await pollDeviceStatus();
     } else {
         adapterInstance.log.debug('Nonce is valid. Proceeding with request.');
-        callback();
     }
 }
 
