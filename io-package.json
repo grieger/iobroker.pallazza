@@ -1,797 +1,800 @@
 {
-    "common": {
-        "name": "haassohn",
-        "version": "1.0.14",
-        "news": {
-		  "1.0.14": {
-			"en": "Added ECO mode to be writable",
-			"de": "ECO-Modus als beschreibbar hinzugefügt",
-			"ru": "Добавлена возможность записи в режим ECO ",
-			"pt": "Adicionado modo ECO para ser gravável",
-			"nl": "ECO-modus toegevoegd om te kunnen schrijven",
-			"fr": "Ajout du mode ECO comme modifiable",
-			"it": "Aggiunto modalità ECO per essere scrivibile",
-			"es": "Añadido modo ECO para ser escribible",
-			"pl": "Dodano tryb ECO jako zapisywalny",
-			"zh-cn": "添加了ECO模式可写入"
-          },
-		  "1.0.11": {
-            "en": "Added support for KS01_V7.01 (HSP 2 Premium)",
-            "de": "Unterstützung von KS01_V7.01 (HSP 2 Premium) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.01 (HSP 2 Premium)",
-            "pt": "Adicionado suporte para KS01_V7.01 (HSP 2 Premium)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.01 (HSP 2 Premium)",
-            "fr": "Ajout de la prise en charge de KS01_V7.01 (HSP 2 Premium)",
-            "it": "Aggiunto supporto per KS01_V7.01 (HSP 2 Premium)",
-            "es": "Soporte agregado para KS01_V7.01 (HSP 2 Premium)",
-            "pl": "Dodano obsługę KS01_V7.01 (HSP 2 Premium)",
-            "zh-cn": "添加了对KS01_V7.01 (HSP 2 Premium) 的支持"
-          },
-          "1.0.10": {
-            "en": "Added support for KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "de": "Unterstützung von KS01_V7.08 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "fr": "Ajout de la prise en charge de KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "es": "Soporte agregado para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "pl": "Dodano obsługę KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
-            "zh-cn": "添加了对KS01_V7.08 (HSP 6 PELLETTO IV 419.08) 的支持"
-          },
-          "1.0.9": {
-            "en": "Added support for KS01_V6.07 (HSP 7)",
-            "de": "Unterstützung von KS01_V6.07 (HSP 7) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V6.07 (HSP 7)",
-            "pt": "Adicionado suporte para KS01_V6.07 (HSP 7)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V6.07 (HSP 7)",
-            "fr": "Ajout de la prise en charge de KS01_V6.07 (HSP 7)",
-            "it": "Aggiunto supporto per KS01_V6.07 (HSP 7)",
-            "es": "Soporte agregado para KS01_V6.07 (HSP 7)",
-            "pl": "Dodano obsługę KS01_V6.07 (HSP 7)",
-            "zh-cn": "添加了对KS01_V6.07 (HSP 7) 的支持"
-          },
-          "1.0.8": {
-            "en": "Added support for KS01_V6.01 (Hark Ecomat 6)",
-            "de": "Unterstützung von KS01_V6.01 (Hark Ecomat 6) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V6.01 (Hark Ecomat 6).",
-            "pt": "Adicionado suporte para KS01_V6.01 (Hark Ecomat 6)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V6.01 (Hark Ecomat 6)",
-            "fr": "Ajout de la prise en charge de KS01_V6.01 (Hark Ecomat 6)",
-            "it": "Aggiunto supporto per KS01_V6.01 (Hark Ecomat 6)",
-            "es": "Soporte agregado para KS01_V6.01 (Hark Ecomat 6)",
-            "pl": "Dodano obsługę KS01_V6.01 (Hark Ecomat 6)",
-            "zh-cn": "添加了对KS01_V6.01 (Hark Ecomat 6) 的支持"
-          },
-          "1.0.7": {
-            "en": "Added support for KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "de": "Unterstützung von KS01_V7.13 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.13 (HSP 6 PELLETTO IV 419.08).",
-            "pt": "Adicionado suporte para KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "fr": "Ajout de la prise en charge de KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "it": "Aggiunto supporto per KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "es": "Soporte agregado para KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "pl": "Dodano obsługę KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
-            "zh-cn": "添加了对KS01_V7.13 (HSP 6 PELLETTO IV 419.08) 的支持"
-          },
-          "1.0.6": {
-            "en": "Added support for KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "de": "Unterstützung von KS01_V5.07 (HSP 6 PALLAZZA-III) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.07 (HSP 6 PALLAZZA-III).",
-            "pt": "Adicionado suporte para KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "fr": "Ajout de la prise en charge de KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "it": "Aggiunto supporto per KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "es": "Soporte agregado para KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "pl": "Dodano obsługę KS01_V5.07 (HSP 6 PALLAZZA-III)",
-            "zh-cn": "添加了对KS01_V5.07 (HSP 6 PALLAZZA-III) 的支持"
-          },
-          "1.0.5": {
-            "en": "Added support for KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "de": "Unterstützung von KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08).",
-            "pt": "Adicionado suporte para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "fr": "Ajout de la prise en charge de KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "it": "Aggiunto supporto per KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "es": "Soporte agregado para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "pl": "Dodano obsługę KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
-            "zh-cn": "添加了对KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) 的支持"
-          },
-          "1.0.4": {
-            "en": "Updated dependencies",
-    		"de": "Abhängigkeiten aktualisiert",
-    		"ru": "Обновленные зависимости",
-    		"pt": "Dependências atualizadas",
-    		"nl": "Bijgewerkte afhankelijkheden",
-    		"fr": "Dépendances mises à jour",
-    		"it": "Dipendenze aggiornate",
-    		"es": "Dependencias actualizadas",
-   		    "pl": "Zaktualizowane zależności",
-   		   "zh-cn": "更新的依赖项"
-          },
-          "1.0.3": {
-            "en": "Added support for KS01_V7.02 (HSP 2.17 Premium III)",
-            "de": "Unterstützung von KS01_V7.02 (HSP 2.17 Premium III) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.02 (HSP 2.17 Premium III).",
-            "pt": "Adicionado suporte para KS01_V7.02 (HSP 2.17 Premium III)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.02 (HSP 2.17 Premium III)",
-            "fr": "Ajout de la prise en charge de KS01_V7.02 (HSP 2.17 Premium III)",
-            "it": "Aggiunto supporto per KS01_V7.02 (HSP 2.17 Premium III)",
-            "es": "Soporte agregado para KS01_V7.02 (HSP 2.17 Premium III)",
-            "pl": "Dodano obsługę KS01_V7.02 (HSP 2.17 Premium III)",
-            "zh-cn": "添加了对KS01_V7.02（HSP 2.17 Premium III）的支持"
-          },
-          "1.0.2": {
-            "en": "Fixed findings of code review",
-            "de": "Ergebnisse der Codeprüfung wurden eingearbeitet",
-            "ru": "Исправленные результаты проверки кода",
-            "pt": "Descobertas corrigidas da revisão de código",
-            "nl": "Vaste bevindingen van codereview",
-            "fr": "Correction des résultats de la révision du code",
-            "it": "Risolti i risultati della revisione del codice",
-            "es": "Hallazgos fijos de la revisión del código",
-            "pl": "Naprawiono ustalenia z przeglądu kodu",
-            "zh-cn": "修正了代码审查的发现"
-          },
-          "1.0.1": {
-            "en": "Support of compact mode",
-            "de": "Compact mode wird nun unterstützt",
-            "ru": "Поддержка компактного режима",
-            "pt": "Suporte para modo compacto",
-            "nl": "Ondersteuning van compacte modus",
-            "fr": "Prise en charge du mode compact",
-            "it": "Supporto della modalità compatta",
-            "es": "Soporte de modo compacto",
-            "pl": "Obsługa trybu kompaktowego",
-            "zh-cn": "支持紧凑模式"
-          },
-          "1.0.0": {
-            "en": "Published adapter in iobroker repository",
-            "de": "Adapter dem ioBroker-Repository hinzugefügt",
-            "ru": "Опубликован адаптер в репозитории iobroker",
-            "pt": "Adaptador publicado no repositório iobroker",
-            "nl": "Gepubliceerde adapter in iobroker-repository",
-            "fr": "Adaptateur publié dans le référentiel iobroker",
-            "it": "Adattatore pubblicato nel repository iobroker",
-            "es": "Adaptador publicado en el repositorio de iobroker",
-            "pl": "Opublikowany adapter w repozytorium iobroker",
-            "zh-cn": "iobroker存储库中已发布的适配器"
-          },
-          "0.3.0": {
-            "en": "Renamed adapter to iobroker.haassohn",
-            "de": "Adapter in iobroker.haassohn umbenannt",
-            "ru": "Адаптер переименован в iobroker.haassohn",
-            "pt": "Adaptador renomeado para iobroker.haassohn",
-            "nl": "Hernoemde adapter naar iobroker.haassohn",
-            "fr": "Adaptateur renommé en iobroker.haassohn",
-            "it": "Adattatore rinominato in iobroker.haassohn",
-            "es": "Adaptador renombrado a iobroker.haassohn",
-            "pl": "Zmieniono nazwę adaptera na iobroker.haassohn",
-            "zh-cn": "将适配器重命名为iobroker.haassohn"
-          },
-          "0.2.8": {
-            "en": "Added support for KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "de": "Unterstützung von KS01_V5.10 (HSP 8 Catania-II 444.08-ST) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.10 (HSP 8 Catania-II 444.08-ST).",
-            "pt": "Adicionado suporte para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "fr": "Ajout de la prise en charge de KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "it": "Aggiunto supporto per KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "es": "Soporte agregado para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "pl": "Dodano obsługę KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
-            "zh-cn": "添加了对KS01_V5.10（HSP 8 Catania-II 444.08-ST）的支持"
-          },
-          "0.2.7": {
-            "en": "Added support for KS01_V7.04-oKV (HSP 7 DIANA)",
-            "de": "Unterstützung von KS01_V7.04-oKV (HSP 7 DIANA) hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V7.04-окВ (HSP 7 DIANA).",
-            "pt": "Adicionado suporte para KS01_V7.04-oKV (HSP 7 DIANA)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.04-oKV (HSP 7 DIANA)",
-            "fr": "Ajout de la prise en charge de KS01_V7.04-oKV (HSP 7 DIANA)",
-            "it": "Aggiunto supporto per KS01_V7.04-oKV (HSP 7 DIANA)",
-            "es": "Soporte agregado para KS01_V7.04-oKV (HSP 7 DIANA)",
-            "pl": "Dodano obsługę KS01_V7.04-oKV (HSP 7 DIANA)",
-            "zh-cn": "添加了对KS01_V7.04-oKV（HSP 7 DIANA）的支持"
-          },
-          "0.2.6": {
-            "en": "Added support for KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "de": "Unterstützung von KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)hinzugefügt",
-            "ru": "Добавлена поддержка KS01_V5.12 (HSP 6 PALLAZZA-III 519.0).",
-            "pt": "Adicionado suporte para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "nl": "Ondersteuning toegevoegd voor KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "fr": "Ajout de la prise en charge de KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "it": "Aggiunto supporto per KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "es": "Soporte agregado para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "pl": "Dodano obsługę KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
-            "zh-cn": "添加了对KS01_V5.12（HSP 6 PALLAZZA-III 519.0）的支持"
-          },
-          "0.2.5": {
-            "en": "Added support for KS01_V7.08 (HSP 6 Pelletto IV 434.08), refined some states",
-            "de": "Unterstützung von KS01_V7.08 (HSP 6 Pelletto IV 434.08) hinzugefügt, Zustände verfeinert",
-            "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 Pelletto IV 434.08), доработаны некоторые состояния",
-            "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 Pelletto IV 434.08), alguns estados refinados",
-            "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 Pelletto IV 434.08), enkele staten verfijnd",
-            "fr": "Ajout du support pour KS01_V7.08 (HSP 6 Pelletto IV 434.08), affiné certains états",
-            "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 Pelletto IV 434.08), perfezionato alcuni stati",
-            "es": "Soporte agregado para KS01_V7.08 (HSP 6 Pelletto IV 434.08), refinado algunos estados",
-            "pl": "Dodano obsługę KS01_V7.08 (HSP 6 Pelletto IV 434.08), poprawiono niektóre stany",
-            "zh-cn": "添加了对KS01_V7.08（HSP 6 Pelletto IV 434.08）的支持，完善了一些状态"
-          }
-        },
-		"title": "Haas+Sohn",
-        "titleLang": {
-            "en": "Haas+Sohn",
-            "de": "Haas+Sohn"
-        },
-        "desc": {
-            "en": "Enables controlling Haas+Sohn devices",
-            "de": "Ermöglicht die Steuerung von Haas+Sohn Geräten",
-            "ru": "Позволяет управлять устройствами Haas + Sohn",
-            "pt": "Permite controlar dispositivos Haas + Sohn",
-            "nl": "Maakt bediening van Haas + Sohn-apparaten mogelijk",
-            "fr": "Permet de contrôler les appareils Haas + Sohn",
-            "it": "Consente il controllo dei dispositivi Haas + Sohn",
-            "es": "Permite controlar dispositivos Haas + Sohn",
-            "pl": "Umożliwia sterowanie urządzeniami Haas + Sohn",
-            "zh-cn": "支持控制Haas + Sohn设备"
-        },
-        "authors": [
-            "Marvin Grieger <github@marvingrieger.de>"
-        ],
-        "docs": {
-            "en": "docs/en/haassohn.md",
-            "de": "docs/de/haassohn.md",
-            "ru": "docs/ru/haassohn.md",
-            "pt": "docs/pt/haassohn.md",
-            "nl": "docs/nl/haassohn.md",
-            "fr": "docs/fr/haassohn.md",
-            "it": "docs/it/haassohn.md",
-            "es": "docs/es/haassohn.md",
-            "pl": "docs/pl/haassohn.md",
-            "zh-cn": "docs/zh-cn/haassohn.md"
-        },
-        "platform": "Javascript/Node.js",
-        "mode": "daemon",
-        "icon": "haassohn.png",
-        "materialize": true,
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/marvingrieger/ioBroker.haassohn/master/admin/haassohn.png",
-        "keywords": ["haas", "sohn", "fireplace", "home automation"],
-        "readme": "https://github.com/grieger/ioBroker.haassohn/blob/master/README.md",
-        "loglevel": "info",
-        "type": "iot-systems",
-        "connectionType": "local",
-        "dataSource": "poll",
-        "license": "MIT",
-        "compact": true
+  "common": {
+    "name": "haassohn",
+    "version": "1.0.15",
+    "news": {
+      "1.0.14": {
+        "en": "Added ECO mode to be writable",
+        "de": "ECO-Modus als beschreibbar hinzugefügt",
+        "ru": "Добавлена возможность записи в режим ECO ",
+        "pt": "Adicionado modo ECO para ser gravável",
+        "nl": "ECO-modus toegevoegd om te kunnen schrijven",
+        "fr": "Ajout du mode ECO comme modifiable",
+        "it": "Aggiunto modalità ECO per essere scrivibile",
+        "es": "Añadido modo ECO para ser escribible",
+        "pl": "Dodano tryb ECO jako zapisywalny",
+        "zh-cn": "添加了ECO模式可写入"
+      },
+      "1.0.11": {
+        "en": "Added support for KS01_V7.01 (HSP 2 Premium)",
+        "de": "Unterstützung von KS01_V7.01 (HSP 2 Premium) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.01 (HSP 2 Premium)",
+        "pt": "Adicionado suporte para KS01_V7.01 (HSP 2 Premium)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.01 (HSP 2 Premium)",
+        "fr": "Ajout de la prise en charge de KS01_V7.01 (HSP 2 Premium)",
+        "it": "Aggiunto supporto per KS01_V7.01 (HSP 2 Premium)",
+        "es": "Soporte agregado para KS01_V7.01 (HSP 2 Premium)",
+        "pl": "Dodano obsługę KS01_V7.01 (HSP 2 Premium)",
+        "zh-cn": "添加了对KS01_V7.01 (HSP 2 Premium) 的支持"
+      },
+      "1.0.10": {
+        "en": "Added support for KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "de": "Unterstützung von KS01_V7.08 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "fr": "Ajout de la prise en charge de KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "es": "Soporte agregado para KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "pl": "Dodano obsługę KS01_V7.08 (HSP 6 PELLETTO IV 419.08)",
+        "zh-cn": "添加了对KS01_V7.08 (HSP 6 PELLETTO IV 419.08) 的支持"
+      },
+      "1.0.9": {
+        "en": "Added support for KS01_V6.07 (HSP 7)",
+        "de": "Unterstützung von KS01_V6.07 (HSP 7) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V6.07 (HSP 7)",
+        "pt": "Adicionado suporte para KS01_V6.07 (HSP 7)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V6.07 (HSP 7)",
+        "fr": "Ajout de la prise en charge de KS01_V6.07 (HSP 7)",
+        "it": "Aggiunto supporto per KS01_V6.07 (HSP 7)",
+        "es": "Soporte agregado para KS01_V6.07 (HSP 7)",
+        "pl": "Dodano obsługę KS01_V6.07 (HSP 7)",
+        "zh-cn": "添加了对KS01_V6.07 (HSP 7) 的支持"
+      },
+      "1.0.8": {
+        "en": "Added support for KS01_V6.01 (Hark Ecomat 6)",
+        "de": "Unterstützung von KS01_V6.01 (Hark Ecomat 6) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V6.01 (Hark Ecomat 6).",
+        "pt": "Adicionado suporte para KS01_V6.01 (Hark Ecomat 6)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V6.01 (Hark Ecomat 6)",
+        "fr": "Ajout de la prise en charge de KS01_V6.01 (Hark Ecomat 6)",
+        "it": "Aggiunto supporto per KS01_V6.01 (Hark Ecomat 6)",
+        "es": "Soporte agregado para KS01_V6.01 (Hark Ecomat 6)",
+        "pl": "Dodano obsługę KS01_V6.01 (Hark Ecomat 6)",
+        "zh-cn": "添加了对KS01_V6.01 (Hark Ecomat 6) 的支持"
+      },
+      "1.0.7": {
+        "en": "Added support for KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "de": "Unterstützung von KS01_V7.13 (HSP 6 PELLETTO IV 419.08) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.13 (HSP 6 PELLETTO IV 419.08).",
+        "pt": "Adicionado suporte para KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "fr": "Ajout de la prise en charge de KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "it": "Aggiunto supporto per KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "es": "Soporte agregado para KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "pl": "Dodano obsługę KS01_V7.13 (HSP 6 PELLETTO IV 419.08)",
+        "zh-cn": "添加了对KS01_V7.13 (HSP 6 PELLETTO IV 419.08) 的支持"
+      },
+      "1.0.6": {
+        "en": "Added support for KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "de": "Unterstützung von KS01_V5.07 (HSP 6 PALLAZZA-III) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V5.07 (HSP 6 PALLAZZA-III).",
+        "pt": "Adicionado suporte para KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "fr": "Ajout de la prise en charge de KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "it": "Aggiunto supporto per KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "es": "Soporte agregado para KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "pl": "Dodano obsługę KS01_V5.07 (HSP 6 PALLAZZA-III)",
+        "zh-cn": "添加了对KS01_V5.07 (HSP 6 PALLAZZA-III) 的支持"
+      },
+      "1.0.5": {
+        "en": "Added support for KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "de": "Unterstützung von KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08).",
+        "pt": "Adicionado suporte para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "fr": "Ajout de la prise en charge de KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "it": "Aggiunto supporto per KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "es": "Soporte agregado para KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "pl": "Dodano obsługę KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08)",
+        "zh-cn": "添加了对KS01_V7.11 (HSP 6 Pelletto-IV Grande 434.08) 的支持"
+      },
+      "1.0.4": {
+        "en": "Updated dependencies",
+        "de": "Abhängigkeiten aktualisiert",
+        "ru": "Обновленные зависимости",
+        "pt": "Dependências atualizadas",
+        "nl": "Bijgewerkte afhankelijkheden",
+        "fr": "Dépendances mises à jour",
+        "it": "Dipendenze aggiornate",
+        "es": "Dependencias actualizadas",
+        "pl": "Zaktualizowane zależności",
+        "zh-cn": "更新的依赖项"
+      },
+      "1.0.3": {
+        "en": "Added support for KS01_V7.02 (HSP 2.17 Premium III)",
+        "de": "Unterstützung von KS01_V7.02 (HSP 2.17 Premium III) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.02 (HSP 2.17 Premium III).",
+        "pt": "Adicionado suporte para KS01_V7.02 (HSP 2.17 Premium III)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.02 (HSP 2.17 Premium III)",
+        "fr": "Ajout de la prise en charge de KS01_V7.02 (HSP 2.17 Premium III)",
+        "it": "Aggiunto supporto per KS01_V7.02 (HSP 2.17 Premium III)",
+        "es": "Soporte agregado para KS01_V7.02 (HSP 2.17 Premium III)",
+        "pl": "Dodano obsługę KS01_V7.02 (HSP 2.17 Premium III)",
+        "zh-cn": "添加了对KS01_V7.02（HSP 2.17 Premium III）的支持"
+      },
+      "1.0.2": {
+        "en": "Fixed findings of code review",
+        "de": "Ergebnisse der Codeprüfung wurden eingearbeitet",
+        "ru": "Исправленные результаты проверки кода",
+        "pt": "Descobertas corrigidas da revisão de código",
+        "nl": "Vaste bevindingen van codereview",
+        "fr": "Correction des résultats de la révision du code",
+        "it": "Risolti i risultati della revisione del codice",
+        "es": "Hallazgos fijos de la revisión del código",
+        "pl": "Naprawiono ustalenia z przeglądu kodu",
+        "zh-cn": "修正了代码审查的发现"
+      },
+      "1.0.1": {
+        "en": "Support of compact mode",
+        "de": "Compact mode wird nun unterstützt",
+        "ru": "Поддержка компактного режима",
+        "pt": "Suporte para modo compacto",
+        "nl": "Ondersteuning van compacte modus",
+        "fr": "Prise en charge du mode compact",
+        "it": "Supporto della modalità compatta",
+        "es": "Soporte de modo compacto",
+        "pl": "Obsługa trybu kompaktowego",
+        "zh-cn": "支持紧凑模式"
+      },
+      "1.0.0": {
+        "en": "Published adapter in iobroker repository",
+        "de": "Adapter dem ioBroker-Repository hinzugefügt",
+        "ru": "Опубликован адаптер в репозитории iobroker",
+        "pt": "Adaptador publicado no repositório iobroker",
+        "nl": "Gepubliceerde adapter in iobroker-repository",
+        "fr": "Adaptateur publié dans le référentiel iobroker",
+        "it": "Adattatore pubblicato nel repository iobroker",
+        "es": "Adaptador publicado en el repositorio de iobroker",
+        "pl": "Opublikowany adapter w repozytorium iobroker",
+        "zh-cn": "iobroker存储库中已发布的适配器"
+      },
+      "0.3.0": {
+        "en": "Renamed adapter to iobroker.haassohn",
+        "de": "Adapter in iobroker.haassohn umbenannt",
+        "ru": "Адаптер переименован в iobroker.haassohn",
+        "pt": "Adaptador renomeado para iobroker.haassohn",
+        "nl": "Hernoemde adapter naar iobroker.haassohn",
+        "fr": "Adaptateur renommé en iobroker.haassohn",
+        "it": "Adattatore rinominato in iobroker.haassohn",
+        "es": "Adaptador renombrado a iobroker.haassohn",
+        "pl": "Zmieniono nazwę adaptera na iobroker.haassohn",
+        "zh-cn": "将适配器重命名为iobroker.haassohn"
+      },
+      "0.2.8": {
+        "en": "Added support for KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "de": "Unterstützung von KS01_V5.10 (HSP 8 Catania-II 444.08-ST) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V5.10 (HSP 8 Catania-II 444.08-ST).",
+        "pt": "Adicionado suporte para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "fr": "Ajout de la prise en charge de KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "it": "Aggiunto supporto per KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "es": "Soporte agregado para KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "pl": "Dodano obsługę KS01_V5.10 (HSP 8 Catania-II 444.08-ST)",
+        "zh-cn": "添加了对KS01_V5.10（HSP 8 Catania-II 444.08-ST）的支持"
+      },
+      "0.2.7": {
+        "en": "Added support for KS01_V7.04-oKV (HSP 7 DIANA)",
+        "de": "Unterstützung von KS01_V7.04-oKV (HSP 7 DIANA) hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V7.04-окВ (HSP 7 DIANA).",
+        "pt": "Adicionado suporte para KS01_V7.04-oKV (HSP 7 DIANA)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.04-oKV (HSP 7 DIANA)",
+        "fr": "Ajout de la prise en charge de KS01_V7.04-oKV (HSP 7 DIANA)",
+        "it": "Aggiunto supporto per KS01_V7.04-oKV (HSP 7 DIANA)",
+        "es": "Soporte agregado para KS01_V7.04-oKV (HSP 7 DIANA)",
+        "pl": "Dodano obsługę KS01_V7.04-oKV (HSP 7 DIANA)",
+        "zh-cn": "添加了对KS01_V7.04-oKV（HSP 7 DIANA）的支持"
+      },
+      "0.2.6": {
+        "en": "Added support for KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "de": "Unterstützung von KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)hinzugefügt",
+        "ru": "Добавлена поддержка KS01_V5.12 (HSP 6 PALLAZZA-III 519.0).",
+        "pt": "Adicionado suporte para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "nl": "Ondersteuning toegevoegd voor KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "fr": "Ajout de la prise en charge de KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "it": "Aggiunto supporto per KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "es": "Soporte agregado para KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "pl": "Dodano obsługę KS01_V5.12 (HSP 6 PALLAZZA-III 519.0)",
+        "zh-cn": "添加了对KS01_V5.12（HSP 6 PALLAZZA-III 519.0）的支持"
+      },
+      "0.2.5": {
+        "en": "Added support for KS01_V7.08 (HSP 6 Pelletto IV 434.08), refined some states",
+        "de": "Unterstützung von KS01_V7.08 (HSP 6 Pelletto IV 434.08) hinzugefügt, Zustände verfeinert",
+        "ru": "Добавлена поддержка KS01_V7.08 (HSP 6 Pelletto IV 434.08), доработаны некоторые состояния",
+        "pt": "Adicionado suporte para KS01_V7.08 (HSP 6 Pelletto IV 434.08), alguns estados refinados",
+        "nl": "Ondersteuning toegevoegd voor KS01_V7.08 (HSP 6 Pelletto IV 434.08), enkele staten verfijnd",
+        "fr": "Ajout du support pour KS01_V7.08 (HSP 6 Pelletto IV 434.08), affiné certains états",
+        "it": "Aggiunto supporto per KS01_V7.08 (HSP 6 Pelletto IV 434.08), perfezionato alcuni stati",
+        "es": "Soporte agregado para KS01_V7.08 (HSP 6 Pelletto IV 434.08), refinado algunos estados",
+        "pl": "Dodano obsługę KS01_V7.08 (HSP 6 Pelletto IV 434.08), poprawiono niektóre stany",
+        "zh-cn": "添加了对KS01_V7.08（HSP 6 Pelletto IV 434.08）的支持，完善了一些状态"
+      }
     },
-    "native": {
-        "fireplaceAddress": "127.0.0.1",
-        "pollingInterval": "30",
-        "pin": "0000",
-        "supportedHwSwVersions": {
-            "KS01_V5.07": true,
-            "KS01_V5.10": true,
-            "KS01_V5.12": true,
-            "KS01_V5.13": true,
-            "KS01_V6.01": true,
-            "KS01_V6.02": true,
-            "KS01_V6.07": true,
-            "KS01_V7.01": true,
-            "KS01_V7.02": true,
-            "KS01_V7.04-oKV": true,
-            "KS01_V7.06": true,
-            "KS01_V7.07": true,
-            "KS01_V7.08": true,
-            "KS01_V7.11": true,
-            "KS01_V7.13": true
-        }
+    "title": "Haas+Sohn",
+    "titleLang": {
+      "en": "Haas+Sohn",
+      "de": "Haas+Sohn"
     },
-    "instanceObjects": [
-        {
-          "_id": "info",
-          "type": "channel",
-          "common":
-          {
-            "name": "Adapter information"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device",
-          "type": "channel",
-          "common":
-          {
-            "name": "Device information"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta",
-          "type": "channel",
-          "common": {
-            "name": "Meta information"
-          },
-          "native": {}
-        },
-        {
-          "_id": "info.connection",
-          "type": "state",
-          "common": {
-            "role": "indicator.connected",
-            "name": "Connection to device successful?",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "info.terminated",
-          "type": "state",
-          "common": {
-            "role": "indicator.maintenance",
-            "name": "Is the adapter terminated due to a critical error?",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "info.missing_state",
-          "type": "state",
-          "common": {
-            "role": "indicator.maintenance",
-            "name": "Is a state missing?",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.sw_version",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Software version",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.hw_version",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Hardware version",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.bootl_version",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Bootloader version",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.wifi_sw_version",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Wifi firmware version",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.wifi_bootl_version",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Wifi bootloader version",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.sn",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Serial Number",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.typ",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Device type",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.language",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Language",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.nonce",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Current nonce",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.wlan_features",
-          "type": "state",
-          "common": {
-            "role": "json",
-            "name": "Wifi features",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-		{
-          "_id": "device.meta.eco_editable",
-          "type": "state",
-          "common": {
-            "name": "Eco Editable Status",
-            "type": "boolean",
-            "role": "switch",
-            "read": true,
-            "write": false,
-            "desc": "Indicates if eco mode is editable"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.prg",
-          "type": "state",
-          "common": {
-           "role": "switch",
-           "name": "Is the oven active?",
-           "type": "boolean",
-           "read": true,
-           "write": true
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.wprg",
-          "type": "state",
-          "common": {
-            "role": "switch",
-            "name": "Is the weekprogram active?",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.mode",
-          "type": "state",
-          "common": {
-            "role": "indicator.working",
-            "name": "Mode of operation",
-            "type": "string",
-            "read": true,
-            "write": false,
-            "states": {
-              "off": "off",
-              "start": "start",
-              "heating": "heating"
-            }
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.zone",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Zone of operation",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.sp_temp",
-          "type": "state",
-          "common": {
-            "role": "value.temperature",
-            "name": "Target temperature",
-            "type": "number",
-            "read": true,
-            "write": true
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.is_temp",
-          "type": "state",
-          "common": {
-            "role": "value.temperature",
-            "name": "Current temperature",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.tvl_temp",
-          "type": "state",
-          "common": {
-            "role": "value.temperature",
-            "name": "Solltemperatur der Wassertasche",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.ht_char",
-          "type": "state",
-          "common": {
-            "role": "state",
-            "name": "Heating Curve",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.weekprogram",
-          "type": "state",
-          "common": {
-            "role": "json",
-            "name": "Week program",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.error",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Error",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.eco_mode",
-          "type": "state",
-          "common": {
-            "role": "switch",
-            "name": "Eco mode indicator",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "native": {}
-        },
-		{
-          "_id": "device.room_mode",
-          "type": "state",
-          "common": {
-            "role": "switch",
-            "name": "Room mode indicator",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.pgi",
-          "type": "state",
-          "common": {
-            "role": "switch",
-            "name": "?",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.ignitions",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Number of ignitions",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.on_time",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Operating hours",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.consumption",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Consumed pellets",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "kg"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.maintenance_in",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Duration until maintenance required",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "minutes"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.cleaning_in",
-          "type": "state",
-          "common": {
-            "role": "value",
-            "name": "Duration until cleaning required",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "minutes"
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.eco_editable",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "Is the eco-mode editable",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.ts",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "?",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.ean",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "EAN (European Article Number)",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.rau",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "?",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.itemid",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "?",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.backend_interval",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "?",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
-        },
-        {
-          "_id": "device.meta.backend_max_diff",
-          "type": "state",
-          "common": {
-            "role": "text",
-            "name": "?",
-            "type": "string",
-            "read": true,
-            "write": false
-          },
-          "native": {}
+    "desc": {
+      "en": "Enables controlling Haas+Sohn devices",
+      "de": "Ermöglicht die Steuerung von Haas+Sohn Geräten",
+      "ru": "Позволяет управлять устройствами Haas + Sohn",
+      "pt": "Permite controlar dispositivos Haas + Sohn",
+      "nl": "Maakt bediening van Haas + Sohn-apparaten mogelijk",
+      "fr": "Permet de contrôler les appareils Haas + Sohn",
+      "it": "Consente il controllo dei dispositivi Haas + Sohn",
+      "es": "Permite controlar dispositivos Haas + Sohn",
+      "pl": "Umożliwia sterowanie urządzeniami Haas + Sohn",
+      "zh-cn": "支持控制Haas + Sohn设备"
+    },
+    "authors": [
+      "Marvin Grieger <github@marvingrieger.de>"
+    ],
+    "docs": {
+      "en": "docs/en/haassohn.md",
+      "de": "docs/de/haassohn.md",
+      "ru": "docs/ru/haassohn.md",
+      "pt": "docs/pt/haassohn.md",
+      "nl": "docs/nl/haassohn.md",
+      "fr": "docs/fr/haassohn.md",
+      "it": "docs/it/haassohn.md",
+      "es": "docs/es/haassohn.md",
+      "pl": "docs/pl/haassohn.md",
+      "zh-cn": "docs/zh-cn/haassohn.md"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "haassohn.png",
+    "materialize": true,
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/marvingrieger/ioBroker.haassohn/master/admin/haassohn.png",
+    "keywords": [
+      "haas",
+      "sohn",
+      "fireplace",
+      "home automation"
+    ],
+    "readme": "https://github.com/grieger/ioBroker.haassohn/blob/master/README.md",
+    "loglevel": "info",
+    "type": "iot-systems",
+    "connectionType": "local",
+    "dataSource": "poll",
+    "license": "MIT",
+    "compact": true
+  },
+  "native": {
+    "fireplaceAddress": "127.0.0.1",
+    "pollingInterval": "30",
+    "pin": "0000",
+    "supportedHwSwVersions": {
+      "KS01_V5.07": true,
+      "KS01_V5.10": true,
+      "KS01_V5.12": true,
+      "KS01_V5.13": true,
+      "KS01_V6.01": true,
+      "KS01_V6.02": true,
+      "KS01_V6.07": true,
+      "KS01_V7.01": true,
+      "KS01_V7.02": true,
+      "KS01_V7.04-oKV": true,
+      "KS01_V7.06": true,
+      "KS01_V7.07": true,
+      "KS01_V7.08": true,
+      "KS01_V7.11": true,
+      "KS01_V7.13": true
+    }
+  },
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Adapter information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device",
+      "type": "channel",
+      "common": {
+        "name": "Device information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta",
+      "type": "channel",
+      "common": {
+        "name": "Meta information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Connection to device successful?",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.terminated",
+      "type": "state",
+      "common": {
+        "role": "indicator.maintenance",
+        "name": "Is the adapter terminated due to a critical error?",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.missing_state",
+      "type": "state",
+      "common": {
+        "role": "indicator.maintenance",
+        "name": "Is a state missing?",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.sw_version",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Software version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.hw_version",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Hardware version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.bootl_version",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Bootloader version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.wifi_sw_version",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Wifi firmware version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.wifi_bootl_version",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Wifi bootloader version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.sn",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Serial Number",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.typ",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Device type",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.language",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Language",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.nonce",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Current nonce",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.wlan_features",
+      "type": "state",
+      "common": {
+        "role": "json",
+        "name": "Wifi features",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.eco_editable",
+      "type": "state",
+      "common": {
+        "name": "Eco Editable Status",
+        "type": "boolean",
+        "role": "switch",
+        "read": true,
+        "write": false,
+        "desc": "Indicates if eco mode is editable"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.prg",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "Is the oven active?",
+        "type": "boolean",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.wprg",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "Is the weekprogram active?",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.mode",
+      "type": "state",
+      "common": {
+        "role": "indicator.working",
+        "name": "Mode of operation",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "states": {
+          "off": "off",
+          "start": "start",
+          "heating": "heating"
         }
-    ]
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.zone",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Zone of operation",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.sp_temp",
+      "type": "state",
+      "common": {
+        "role": "value.temperature",
+        "name": "Target temperature",
+        "type": "number",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.is_temp",
+      "type": "state",
+      "common": {
+        "role": "value.temperature",
+        "name": "Current temperature",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.tvl_temp",
+      "type": "state",
+      "common": {
+        "role": "value.temperature",
+        "name": "Solltemperatur der Wassertasche",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.ht_char",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Heating Curve",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.weekprogram",
+      "type": "state",
+      "common": {
+        "role": "json",
+        "name": "Week program",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.error",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Error",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.eco_mode",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "Eco mode indicator",
+        "type": "boolean",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.room_mode",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "Room mode indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.pgi",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "?",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.ignitions",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Number of ignitions",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.on_time",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Operating hours",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.consumption",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Consumed pellets",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "kg"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.maintenance_in",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Duration until maintenance required",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "minutes"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.cleaning_in",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Duration until cleaning required",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "minutes"
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.eco_editable",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Is the eco-mode editable",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.ts",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "?",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.ean",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "EAN (European Article Number)",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.rau",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.itemid",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.backend_interval",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "device.meta.backend_max_diff",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }
