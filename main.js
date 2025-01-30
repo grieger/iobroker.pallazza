@@ -9,10 +9,6 @@ const md5 = require('md5');
 const request = require('request');
 const util = require('util');
 
-// you have to call the adapter function and pass a options object
-// name has to be set and has to be equal to adapters folder name and main file name excluding extension
-// adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.haassohn.0
-
 // Variables
 const deviceStates = {};              // Used to internally buffer the retrieved states before writing them to the adapter
 let noOfConnectionErrors = 0;         // Counter for connection problems
@@ -27,11 +23,6 @@ let nonce;                            // The current NONCE of the device
 let nonceTimestamp = 0;               // Timestamp when the nonce was last updated
 const nonceExpiryTime = 60 * 60 * 1000; // Example: 1 hour in milliseconds
 let adapterInstance;                  // Adapter object
-
-// Promisify adapter methods for async/await
-const getObjectAsync = util.promisify;
-const getStateAsync = util.promisify;
-const setStateAsync = util.promisify;
 
 // Start Adapter function
 function startAdapter(options) {
@@ -196,20 +187,36 @@ async function pollDeviceStatus() {
     adapterInstance.log.debug('Polling device started');
     clearTimeout(timer);
 
-    // Calculate device link
-    const link = 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi';
+    // Calculate device link with unique query parameter to prevent caching
+    const link = 'http://' + adapterInstance.config.fireplaceAddress + '/status.cgi?ts=' + Date.now();
+
+    const options = {
+        method: 'GET',
+        url: link,
+        headers: {
+            'Connection': 'close',
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+        }
+    };
 
     try {
         // Promisify request for async/await
-        const response = await util.promisify(request)(link);
+        const response = await util.promisify(request)(options);
         if (response && response.statusCode === 200) {
             adapterInstance.log.debug('Received successful response from device');
             adapterInstance.log.debug('Response body: ' + response.body);
 
             let result;
             try {
-                // Evaluate result
+                // Log detailed parsing information
                 result = JSON.parse(response.body);
+                adapterInstance.log.debug(`Parsed JSON successfully.`);
+
+                // Log presence of meta and nonce
+                adapterInstance.log.debug(`Result.meta exists: ${result.meta !== undefined}`);
+                adapterInstance.log.debug(`Result.meta.nonce: ${result.meta ? result.meta.nonce : 'undefined'}`);
 
                 // Reset error counter
                 noOfConnectionErrors = 0;
@@ -222,6 +229,8 @@ async function pollDeviceStatus() {
                         nonceTimestamp = Date.now();
                         hspin = calculateHSPIN(nonce, hpin);
                         adapterInstance.log.debug(`Updated nonce to: ${nonce} and hspin to: ${hspin}`);
+                    } else {
+                        adapterInstance.log.debug(`Nonce remains unchanged: ${nonce}`);
                     }
                 } else {
                     adapterInstance.log.warn('Nonce not found in the response');
