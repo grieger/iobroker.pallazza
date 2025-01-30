@@ -394,18 +394,17 @@ function calculateHPIN(PIN) {
 // Provides a header for a POST request
 function createHeader(post_data) {
   return {
-    Host: adapterInstance.config.fireplaceAddress,
-    Accept: "*/*",
-    "Proxy-Connection": "keep-alive",
-    "X-BACKEND-IP": "https://app.haassohn.com",
-    "Accept-Language": "de-DE;q=1.0, en-DE;q=0.9",
-    "Accept-Encoding": "gzip, deflate",
-    token: "32bytes",
-    "Content-Type": "application/json",
-    "Content-Length": Buffer.byteLength(post_data),
-    "User-Agent": "ios",
-    Connection: "keep-alive",
-    "X-HS-PIN": hspin,
+    'Host': adapterInstance.config.fireplaceAddress,
+    'Accept': 'application/json',
+    'Proxy-Connection': 'close', // Changed to 'close' to match non-persistent behavior
+    'X-BACKEND-IP': 'https://app.haassohn.com',
+    'Accept-Language': 'cs-CZ,cs;q=1.0, en-DE;q=0.9', // Adjusted to match likely locale
+    'Accept-Encoding': 'gzip, deflate',
+    'Content-Type': 'application/json',
+    'Content-Length': Buffer.byteLength(post_data),
+    'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 14; SM-G998B Build/UP1A.231005.007)', // Mimic mobile app
+    'Connection': 'close', // Ensure connections are not persistent
+    'X-HS-PIN': hspin
   };
 }
 
